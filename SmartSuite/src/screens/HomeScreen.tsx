@@ -25,7 +25,14 @@ const HomeScreen = ({ navigation }: Props) => {
       <Text style={styles.subtitle}>All-in-One Tools</Text>
       <View style={styles.buttonContainer}>
         <Button
-          title="Go to About Screen"
+          title="To-Do List"
+          onPress={() => navigation.navigate('Todo')}
+          disabled={loading}
+        />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button
+          title="About"
           onPress={() => navigation.navigate('About')}
           disabled={loading}
         />

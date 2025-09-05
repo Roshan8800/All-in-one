@@ -1,23 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, StatusBar } from 'react-native';
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
 import Logo from '../assets/logo.svg';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Splash'>;
-
-const SplashScreen = ({ navigation }: Props) => {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigation.replace('Home');
-    }, 3000); // 3-second delay
-
-    return () => clearTimeout(timer); // Cleanup the timer
-  }, [navigation]);
-
+// This is now a simple presentational component.
+// Its display is controlled by the AppNavigator based on the auth loading state.
+const SplashScreen = () => {
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" />
+      <StatusBar barStyle="light-content" backgroundColor="#2F4F4F" />
       <Logo width={120} height={120} />
       <Text style={styles.appName}>SmartSuite</Text>
       <Text style={styles.createdBy}>Created by - Roshan</Text>
