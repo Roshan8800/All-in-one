@@ -9,14 +9,15 @@ import AboutScreen from '../screens/AboutScreen';
 import SignInScreen from '../screens/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import TodoScreen from '../screens/TodoScreen';
+import CalculatorScreen from '../screens/CalculatorScreen';
 
 export type RootStackParamList = {
-  // Splash is handled outside the main navigator now
   Home: undefined;
   About: undefined;
   SignIn: undefined;
   SignUp: undefined;
   Todo: undefined;
+  Calculator: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -24,7 +25,6 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const AppNavigator = () => {
   const { session, loading } = useAuth();
 
-  // Show a splash screen while the session is loading
   if (loading) {
     return <SplashScreen />;
   }
@@ -42,6 +42,7 @@ const AppNavigator = () => {
             />
             <Stack.Screen name="About" component={AboutScreen} />
             <Stack.Screen name="Todo" component={TodoScreen} options={{ title: 'My To-Do List' }} />
+            <Stack.Screen name="Calculator" component={CalculatorScreen} options={{ title: 'Calculator' }} />
           </>
         ) : (
           // Auth Stack (for logged-out users)

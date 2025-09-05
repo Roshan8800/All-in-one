@@ -32,6 +32,13 @@ const HomeScreen = ({ navigation }: Props) => {
       </View>
       <View style={styles.buttonContainer}>
         <Button
+          title="Calculator"
+          onPress={() => navigation.navigate('Calculator')}
+          disabled={loading}
+        />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button
           title="About"
           onPress={() => navigation.navigate('About')}
           disabled={loading}
